@@ -8,19 +8,19 @@
         <h3 class="text-center mb-4"><b>Iniciar Sesión Usuario</b></h3>
 
         <!-- Formulario de inicio de sesión -->
-        <form id="loginUserForm" action="loginUsuario" method="post">
+        <form (ngSubmit)="login()" #loginForm="ngForm">
             <!-- Nombre de club o correo -->
             <div class="mb-3">
-                <input type="text" id="email" name="email" class="form-control" placeholder="Introduzca su correo" required>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Introduzca su correo" [(ngModel)]="email" required>
             </div>
 
             <!-- Contraseña -->
             <div class="mb-3">
-                <input type="password" id="password" name="password" class="form-control" placeholder="Introduce la contraseña" required>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Introduce la contraseña" [(ngModel)]="password" required>
             </div>
 
             <!-- Botón de iniciar sesión -->
-            <button type="submit" class="btn btn-dark w-100">Iniciar Sesión</button>
+            <button type="submit" class="btn btn-dark w-100" [disabled]="!loginForm.valid">Iniciar Sesión</button>
         </form>
 
         <!-- Enlaces adicionales -->
@@ -32,6 +32,8 @@
         </div>
 
         <!-- Contenedor para mostrar mensajes de resultado -->
-        <div id="result" class="text-center mt-3 text-danger"></div>
+        <div *ngIf="errorMessage" class="text-center mt-3 text-danger">
+            <p>{{ errorMessage }}</p>
+        </div>
     </div>
 </div>
