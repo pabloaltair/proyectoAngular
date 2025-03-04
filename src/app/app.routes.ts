@@ -5,10 +5,10 @@ import { RegistrarUsuarioComponent } from './registrar-usuario/registrar-usuario
 import { MenuAdministradorComponent } from './menu-administrador/menu-administrador.component';
 
 export const routes: Routes = [ 
+    { path: 'inicio', component: InicioComponent},
     { path: '', component: InicioComponent},
     { path: 'login', component: InicioSesionComponent },
     { path: 'registro', component: RegistrarUsuarioComponent },
-    { path: 'menuAdmin', component: MenuAdministradorComponent },
-    { path: "**", redirectTo: "home" }
+    { path: 'menuAdmin', component: MenuAdministradorComponent }
     
 ];

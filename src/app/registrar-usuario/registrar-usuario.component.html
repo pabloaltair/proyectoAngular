@@ -1,1 +1,53 @@
-<p>registrar-usuario works!</p>
+<div class="container" style="max-width: 400px; margin-top: 50px;">
+    
+    <!-- Imágen del logo -->
+    <div class="text-center mt-3">
+        <img width="148" height="118" src="imagenes/logo.png" alt="Logo Fuun" class="img-fluid">
+    </div>
+    
+    <h3 class="text-center mb-4"><b>Alta de Usuario</b></h3>
+
+    <!-- Formulario de registro -->
+    <form id="registerUserForm" action="registroUsuario" method="POST"> 
+
+        <!-- Nombre de usuario -->
+        <div class="mb-3">
+            <input type="text" id="nombreUsuario" name="nombreUsuario" class="form-control" placeholder="Introduzca su nombre" required>
+        </div>
+        
+        
+        <!-- Telefono de usuario -->
+        <div class="mb-3">
+            <input type="text" id="telefonoUsuario" name="telefonoUsuario" class="form-control" placeholder="Introduzca su telefono" required>
+        </div>
+    
+        <!-- Correo -->
+        <div class="mb-3">
+            <input type="email" id="emailUsuario" name="emailUsuario" class="form-control" placeholder="Introduzca su email" required>
+        </div>
+
+        <!-- Contraseña -->
+        <div class="mb-3">
+            <input type="password" id="passwordUsuario" name="passwordUsuario" class="form-control" placeholder="Introduce la contraseña"
+                required>
+        </div>
+
+        <!-- Confirmar Contraseña -->
+        <div class="mb-3">
+            <input type="password" id="confirmPasswordUsuario" name="confirmPasswordUsuario" class="form-control"
+                placeholder="Repetir contraseña" required>
+        </div>
+
+        <!-- Botón de registro -->
+        <button type="submit" class="btn btn-dark w-100">Registrarse</button>
+    </form>
+
+    <!-- Enlaces adicionales -->
+    <div class="text-center mt-3">
+        <p>¿Ya estas registrado? <a routerLink="/login">Iniciar Sesión</a></p>
+        <p><a routerLink="/inicio">Volver al menú</a></p>
+    </div>
+
+    <!-- Contenedor de mensajes de resultado -->
+    <div id="result" class="text-center mt-3 text-danger"></div>
+</div>
