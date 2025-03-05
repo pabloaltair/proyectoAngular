@@ -42,7 +42,7 @@ export class RegistrarUsuarioComponent {
     // Llamar al servicio de registro para enviar los datos
     this.registroService.registrarUsuario(usuario).subscribe({
       next: (response) => {
-        this.mensaje = 'Usuario registrado exitosamente.';
+        this.mensaje = response; // Mensaje del servidor (Usuario registrado exitosamente)
         setTimeout(() => {
           this.router.navigate(['/login']); // Redirigir a la página de login
         }, 2000);

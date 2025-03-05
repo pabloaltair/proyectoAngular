@@ -7,11 +7,11 @@ import { Observable } from 'rxjs';
 })
 export class RegistroService {
 
-  private apiUrl = 'http://localhost:8081/api/registro/usuario';  // Cambia la URL si es necesario
+  private apiUrl = 'http://localhost:8081/api/registro/usuario';  // Tu API URL
 
   constructor(private http: HttpClient) {}
 
-  registrarUsuario(usuario: any): Observable<any> {
-    return this.http.post(this.apiUrl, usuario);
+  registrarUsuario(usuario: any): Observable<string> {
+    return this.http.post(this.apiUrl, usuario, { responseType: 'text' });
   }
 }
