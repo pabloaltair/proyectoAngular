@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
-import { RegistroService } from '../servicios/registro.service';
+import { UsuarioService } from '../servicios/usuario.service';
 
 @Component({
   selector: 'app-registrar-usuario',
@@ -11,7 +11,7 @@ import { RegistroService } from '../servicios/registro.service';
   imports: [CommonModule, FormsModule, HttpClientModule, RouterLink],
   templateUrl: './registrar-usuario.component.html',
   styleUrls: ['./registrar-usuario.component.css'],
-  providers: [RegistroService]
+  providers: [UsuarioService]
 })
 export class RegistrarUsuarioComponent {
   nombreUsuario = '';
@@ -21,7 +21,7 @@ export class RegistrarUsuarioComponent {
   confirmPasswordUsuario = '';
   mensaje = '';
 
-  constructor(private registroService: RegistroService, private router: Router) {}
+  constructor(private usuarioService: UsuarioService, private router: Router) {}
 
   // Método para registrar al usuario
   registrar() {
@@ -40,7 +40,7 @@ export class RegistrarUsuarioComponent {
     };
 
     // Llamar al servicio de registro para enviar los datos
-    this.registroService.registrarUsuario(usuario).subscribe({
+    this.usuarioService.registrarUsuario(usuario).subscribe({
       next: (response) => {
         this.mensaje = response; // Mensaje del servidor (Usuario registrado exitosamente)
         setTimeout(() => {
