@@ -5,14 +5,15 @@ import { RegistrarUsuarioComponent } from './registrar-usuario/registrar-usuario
 import { MenuAdministradorComponent } from './menu-administrador/menu-administrador.component';
 import { EliminarUsuarioComponent } from './eliminar-usuario/eliminar-usuario.component';
 import { ModificarUsuarioComponent } from './modificar-usuario/modificar-usuario.component';
+import { AuthGuard } from './servicios/auth.guard';
 
 export const routes: Routes = [ 
     { path: 'inicio', component: InicioComponent},
-    { path: '', component: InicioComponent},
+    { path: '', component: InicioComponent}, // Ruta inicial
     { path: 'login', component: InicioSesionComponent },
     { path: 'registro', component: RegistrarUsuarioComponent },
-    { path: 'eliminar', component: EliminarUsuarioComponent },
-    { path: 'modificar', component: ModificarUsuarioComponent },
-    { path: 'menuAdmin', component: MenuAdministradorComponent }
-    
+    { path: 'eliminar', component: EliminarUsuarioComponent, canActivate: [AuthGuard] },
+    { path: 'modificar', component: ModificarUsuarioComponent, canActivate: [AuthGuard] },
+    { path: 'menuAdmin', component: MenuAdministradorComponent, canActivate: [AuthGuard] },
+    { path: '**', redirectTo: '/inicio' }  // Redirige cualquier ruta no definida a /inicio
 ];

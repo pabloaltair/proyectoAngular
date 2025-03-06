@@ -4,12 +4,10 @@ import { UsuarioService } from '../servicios/usuario.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterLink } from '@angular/router';
-
 @Component({
   selector: 'app-modificar-usuario',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule, RouterLink], 
+  imports: [CommonModule, FormsModule, HttpClientModule], 
   templateUrl: './modificar-usuario.component.html',
   styleUrls: ['./modificar-usuario.component.css'],
   providers: [UsuarioService]

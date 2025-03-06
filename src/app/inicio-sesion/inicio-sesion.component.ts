@@ -8,7 +8,7 @@ import { Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-inicio-sesion',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule, RouterLink], 
+  imports: [CommonModule, FormsModule, HttpClientModule,RouterLink], 
   templateUrl: './inicio-sesion.component.html',
   styleUrls: ['./inicio-sesion.component.css'],
   providers: [UsuarioService]
@@ -31,11 +31,13 @@ export class InicioSesionComponent {
         console.log("Respuesta del servidor:", response); // Log la respuesta del servidor
 
         if (response === 'admin') {
+          // Guardamos el rol en el localStorage
           localStorage.setItem('token', response); 
           this.successMessage = '¡Login exitoso!';
           console.log("Login exitoso: Rol de admin."); // Log para el admin
           this.router.navigate(['/menuAdmin']); // Redirigir a menú de admin
         } else if (response === 'usuario') {
+          // Guardamos el rol en el localStorage
           localStorage.setItem('token', response);
           this.successMessage = '¡Login exitoso!';
           console.log("Login exitoso: Rol de usuario."); // Log para el usuario
@@ -50,5 +52,6 @@ export class InicioSesionComponent {
         console.log("Error en el servidor:", error); // Log de error en la respuesta del servidor
       }
     );
-  }  
+  } 
+   
 }

@@ -3,11 +3,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UsuarioService } from '../servicios/usuario.service'; // Importa tu servicio
-import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-eliminar-usuario',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule, RouterLink], // Aquí importamos los módulos necesarios
+  imports: [CommonModule, FormsModule, HttpClientModule], // Aquí importamos los módulos necesarios
   templateUrl: './eliminar-usuario.component.html',
   styleUrls: ['./eliminar-usuario.component.css'],
   providers: [UsuarioService]  // Proveedor del servicio de usuario
