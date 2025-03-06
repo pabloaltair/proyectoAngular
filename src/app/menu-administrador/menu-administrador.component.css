@@ -1,0 +1,46 @@
+.fondo {
+    background-image: url('/public/imagenes/fondoperiodico.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .container {
+    background-color: rgba(237, 232, 232, 1);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .btn {
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .btn-outline-dark, .btn-outline-danger {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-outline-dark:hover, .btn-outline-danger:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .text-center p {
+    font-size: 14px;
+  }
+  
+  .text-center p a {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  .text-center p a:hover {
+    text-decoration: underline;
+  }
+  
