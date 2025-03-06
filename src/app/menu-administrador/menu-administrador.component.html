@@ -1,25 +1,22 @@
-<div class="fondo">
-    <div class="container" style="width: 400px; margin-top: 50px;">
-      <!-- Imagen del logo -->
-      <div class="text-center mt-3">
-        <img width="148" height="118" src="imagenes/logo.png" alt="Logo Fuun" class="img-fluid">
-      </div>
+<div class="container mt-5">
+    <!-- Botones para Modificar y Eliminar Usuario -->
+    <div class="d-flex justify-content-between">
+      <button (click)="toggleModificar()" class="btn btn-outline-primary w-48">
+        <i class="fas fa-edit"></i> Modificar Usuario
+      </button>
+      <button (click)="toggleEliminar()" class="btn btn-outline-danger w-48">
+        <i class="fas fa-trash-alt"></i> Eliminar Usuario
+      </button>
+    </div>
   
-      <h3 class="text-center mb-4"><b>Gestión de Usuarios</b></h3>
+    <!-- Contenido de "Modificar Usuario" que aparece al hacer clic -->
+    <div *ngIf="isModificarVisible" class="mt-3">
+      <app-modificar-usuario></app-modificar-usuario> <!-- Aquí añades el componente de modificar -->
+    </div>
   
-      <!-- Botones para redirigir a modificar y eliminar usuario -->
-      <div class="mb-3">
-        <a routerLink="/modificar" class="btn btn-outline-dark w-100 mb-3">
-          <i class="fas fa-edit"></i> Modificar Usuario
-        </a>
-      </div>
-  
-      <div class="mb-3">
-        <a routerLink="/eliminar" class="btn btn-outline-danger w-100">
-          <i class="fas fa-trash-alt"></i> Eliminar Usuario
-        </a>
-      </div>
-  
+    <!-- Contenido de "Eliminar Usuario" que aparece al hacer clic -->
+    <div *ngIf="isEliminarVisible" class="mt-3">
+      <app-eliminar-usuario></app-eliminar-usuario> <!-- Aquí añades el componente de eliminar -->
     </div>
   </div>
   
