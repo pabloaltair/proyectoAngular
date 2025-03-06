@@ -1,0 +1,83 @@
+<div class="fondo">
+    <div class="container" style="width: 400px; margin-top: 50px;">
+      <!-- Imagen del logo (si la tienes en tu proyecto) -->
+      <div class="text-center mt-3">
+        <img width="148" height="118" src="imagenes/logo.png" alt="Logo" class="img-fluid">
+      </div>
+  
+      <h3 class="text-center mb-4"><b>Modificar Usuario</b></h3>
+  
+      <!-- Formulario de modificación de usuario -->
+      <form (ngSubmit)="modificarUsuario()">
+        <!-- ID de Usuario -->
+        <div class="mb-3">
+          <input
+            type="number"
+            id="usuarioId"
+            [(ngModel)]="usuarioId"
+            name="usuarioId"
+            class="form-control"
+            placeholder="Ingrese el ID del usuario"
+            required
+          />
+        </div>
+  
+        <!-- Nombre del usuario -->
+        <div class="mb-3">
+          <input
+            type="text"
+            id="nombre"
+            [(ngModel)]="nuevoNombre"
+            name="nuevoNombre"
+            class="form-control"
+            placeholder="Ingrese el nuevo nombre"
+            required
+          />
+        </div>
+  
+        <!-- Teléfono del usuario -->
+        <div class="mb-3">
+          <input
+            type="text"
+            id="telefono"
+            [(ngModel)]="nuevoTelefono"
+            name="nuevoTelefono"
+            class="form-control"
+            placeholder="Ingrese el nuevo teléfono"
+            required
+          />
+        </div>
+  
+        <!-- Rol del usuario -->
+        <div class="mb-3">
+          <select [(ngModel)]="nuevoRol" name="nuevoRol" id="rol" class="form-control" required>
+            <option value="">Seleccione el rol</option>
+            <option value="admin">Admin</option>
+            <option value="usuario">Usuario</option>
+          </select>
+        </div>
+  
+        <!-- Foto del usuario -->
+        <div class="mb-3">
+          <input type="file" (change)="onFileChange($event)" id="foto" class="form-control" />
+        </div>
+  
+        <!-- Mensajes de error o éxito -->
+        <div *ngIf="errorMessage" class="text-center mt-3 text-danger">
+          <p>{{ errorMessage }}</p>
+        </div>
+        <div *ngIf="successMessage" class="text-center mt-3 text-success">
+          <p>{{ successMessage }}</p>
+        </div>
+  
+        <!-- Botón para modificar el usuario -->
+        <button type="submit" class="btn btn-dark w-100" [disabled]="!usuarioId || !nuevoNombre || !nuevoTelefono || !nuevoRol">Modificar Usuario</button>
+      </form>
+  
+      <!-- Enlaces adicionales -->
+      <div class="text-center mt-3">
+        <p><a routerLink="/menuAdmin" class="btn btn-primary">Ir a Menú Admin</a></p>
+      </div>
+    </div>
+  </div>
+  

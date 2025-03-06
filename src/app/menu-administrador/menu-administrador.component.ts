@@ -1,12 +1,20 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { ModificarUsuarioComponent } from "../modificar-usuario/modificar-usuario.component";
+import { EliminarUsuarioComponent } from "../eliminar-usuario/eliminar-usuario.component";
 
 @Component({
   selector: 'app-menu-administrador',
-  imports: [RouterLink],
   templateUrl: './menu-administrador.component.html',
-  styleUrl: './menu-administrador.component.css'
+  styleUrls: ['./menu-administrador.component.css'],
+  imports: [ModificarUsuarioComponent, EliminarUsuarioComponent]
 })
 export class MenuAdministradorComponent {
+  activeSection: string = 'modificar'; // Sección activa por defecto
 
+  constructor() {}
+
+  // Método para actualizar la sección activa
+  setActiveSection(section: string) {
+    this.activeSection = section;
+  }
 }
