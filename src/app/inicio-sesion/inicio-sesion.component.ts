@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthService } from '../servicios/auth.service';
+import { UsuarioService } from '../servicios/usuario.service';
 import { Router, RouterLink } from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ import { Router, RouterLink } from '@angular/router';
   imports: [CommonModule, FormsModule, HttpClientModule, RouterLink], 
   templateUrl: './inicio-sesion.component.html',
   styleUrls: ['./inicio-sesion.component.css'],
-  providers: [AuthService]
+  providers: [UsuarioService]
 })
 export class InicioSesionComponent {
   email = '';
@@ -19,14 +19,14 @@ export class InicioSesionComponent {
   errorMessage = '';  
   successMessage = '';  
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private usuarioService: UsuarioService, private router: Router) {}
 
   login() {
     this.errorMessage = '';
     this.successMessage = '';
     console.log("Intentando iniciar sesión..."); // Log cuando empieza el login
     
-    this.authService.login({ email: this.email, password: this.password }).subscribe(
+    this.usuarioService.login({ email: this.email, password: this.password }).subscribe(
       (response) => {
         console.log("Respuesta del servidor:", response); // Log la respuesta del servidor
 
