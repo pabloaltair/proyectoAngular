@@ -25,20 +25,20 @@ export class InicioSesionComponent {
     this.errorMessage = '';
     this.successMessage = '';
     console.log("Intentando iniciar sesión..."); // Log cuando empieza el login
-    
+  
     this.usuarioService.login({ email: this.email, password: this.password }).subscribe(
       (response) => {
         console.log("Respuesta del servidor:", response); // Log la respuesta del servidor
-
+  
         if (response === 'admin') {
-          // Guardamos el rol en el localStorage
           localStorage.setItem('token', response); 
+          localStorage.setItem('role', 'admin');  // Guardar el rol como 'admin'
           this.successMessage = '¡Login exitoso!';
           console.log("Login exitoso: Rol de admin."); // Log para el admin
           this.router.navigate(['/menuAdmin']); // Redirigir a menú de admin
         } else if (response === 'usuario') {
-          // Guardamos el rol en el localStorage
           localStorage.setItem('token', response);
+          localStorage.setItem('role', 'usuario');  // Guardar el rol como 'usuario'
           this.successMessage = '¡Login exitoso!';
           console.log("Login exitoso: Rol de usuario."); // Log para el usuario
           this.router.navigate(['/inicio']); // Redirigir a menú de usuario
@@ -52,6 +52,7 @@ export class InicioSesionComponent {
         console.log("Error en el servidor:", error); // Log de error en la respuesta del servidor
       }
     );
-  } 
+  }
+  
    
 }
