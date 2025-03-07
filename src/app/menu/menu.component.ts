@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { UsuarioService } from '../servicios/usuario.service';
 import {  RouterLink } from '@angular/router';
 @Component({
   selector: 'app-menu',
