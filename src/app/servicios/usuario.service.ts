@@ -42,4 +42,9 @@ export class UsuarioService {
   obtenerUsuario(id: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/usuario/${id}`);
   }
+  // Método para obtener todos los usuarios
+obtenerTodosLosUsuarios(): Observable<any[]> {
+  return this.http.get<any[]>(`${this.apiUrl}/usuarios/listar`);
+}
+
 }

@@ -2,15 +2,13 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ModificarUsuarioComponent } from "../modificar-usuario/modificar-usuario.component";
 import { EliminarUsuarioComponent } from "../eliminar-usuario/eliminar-usuario.component"; // Importa CommonModule aquí
-
+import { ListaUsuariosComponent } from '../lista-usuarios/lista-usuarios.component';
 @Component({
   selector: 'app-menu-administrador',
   templateUrl: './menu-administrador.component.html',
   styleUrls: ['./menu-administrador.component.css'],
   standalone: true,  // Asegúrate de que sea un standalone component
-  imports: [CommonModule, ModificarUsuarioComponent, EliminarUsuarioComponent] // Asegúrate de importar CommonModule aquí
- // Asegúrate de importar CommonModule aquí
- // Asegúrate de importar CommonModule aquí
+  imports: [CommonModule, ModificarUsuarioComponent, EliminarUsuarioComponent,ListaUsuariosComponent] // Asegúrate de importar CommonModule aquí
 })
 export class MenuAdministradorComponent {
   
